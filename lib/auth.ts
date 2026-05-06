@@ -1,7 +1,7 @@
-import { NextAuth } from "next-auth";
+import { Auth } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = Auth({
   providers: [
     Credentials({
       name: "Email Login",
@@ -12,7 +12,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         if (!credentials?.email || !credentials.password) return null;
 
-        // ADMIN USER
         if (
           credentials.email === "saeeann@gmail.com" &&
           credentials.password === process.env.ADMIN_PASSWORD
