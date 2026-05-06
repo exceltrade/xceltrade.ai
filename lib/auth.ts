@@ -1,9 +1,9 @@
-import { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
-    CredentialsProvider({
+    Credentials({
       name: "Email Login",
       credentials: {
         email: { label: "Email", type: "email" },
@@ -29,6 +29,7 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) token.role = user.role;
@@ -39,7 +40,8 @@ export const authOptions: NextAuthOptions = {
       return session;
     }
   },
+
   pages: {
     signIn: "/login"
   }
-};
+});
