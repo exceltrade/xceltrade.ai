@@ -10,6 +10,8 @@
     "studio": "next dev -p 3333"
   },
   "dependencies": {
+    "next-sanity": "^5.5.0",
+    "sanity": "^3.36.0",
     "@sanity/client": "^6.18.0",
     "@sanity/vision": "^3.6.0",
     "next": "14.2.3",
