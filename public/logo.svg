@@ -1,0 +1,12 @@
+<svg width="260" height="48" viewBox="0 0 260 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Neural X symbol -->
+    <path d="M12 8 L24 20 L12 32" stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 8 L12 20 L24 32" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Wordmark -->
+    <text x="40" y="28" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#0F172A">
+      xceltrade.ai
+    </text>
+  </g>
+</svg>
