@@ -1,10 +1,11 @@
-import { auth } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 
 export default async function DashboardPage() {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
 
-  if (!session || session.user.role !== "admin") {
+  if (!session || session.user?.role !== "admin") {
     return (
       <div className="max-w-xl mx-auto mt-32 text-center">
         <h1 className="text-2xl font-bold text-slate-900">Access Denied</h1>
