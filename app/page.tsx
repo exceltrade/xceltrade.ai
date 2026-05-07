@@ -1,34 +1,20 @@
-import { sanityClient } from "../lib/sanity.client";
-import { groq } from "next-sanity";
-import Hero from "../components/Hero";
-import MetricsSection from "../components/MetricsSection";
-import ServicesSection from "../components/ServicesSection";
-import CTASection from "../components/CTASection";
+import { sanityFetch } from "@/lib/sanity.fetch"
+import { homeQuery } from "@/lib/queries"
 
 export default async function HomePage() {
-  const query = groq`*[_type == "pageHome"][0]{
-    heroTitle,
-    heroSubtitle,
-    heroCtaLabel,
-    metrics,
-    servicesIntro
-  }`;
-
-  const data = await sanityClient.fetch(query);
+  const data = await sanityFetch(homeQuery)
 
   return (
-    <main className="flex flex-col gap-24">
-      <Hero
-        title={data.heroTitle}
-        subtitle={data.heroSubtitle}
-        ctaLabel={data.heroCtaLabel}
-      />
+    <main>
+      <h1>{data?.title}</h1>
+      <p>{data?.subtitle}</p>
 
-      <MetricsSection metrics={data.metrics} />
-
-      <ServicesSection intro={data.servicesIntro} />
-
-      <CTASection />
+      {data?.sections?.map((section: any) => (
+        <section key={section.title}>
+          <h2>{section.title}</h2>
+          <p>{section.content}</p>
+        </section>
+      ))}
     </main>
-  );
+  )
 }
