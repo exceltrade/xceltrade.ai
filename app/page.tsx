@@ -2,7 +2,7 @@ import { sanityFetch } from "@/lib/sanity.fetch"
 import { homeQuery } from "@/lib/queries"
 
 export default async function HomePage() {
-  const data = await sanityFetch(homeQuery)
+  const data: any = await sanityFetch(homeQuery)
 
   return (
     <main>
