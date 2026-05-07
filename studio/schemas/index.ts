@@ -1,9 +1,4 @@
-import {StructureBuilder} from 'sanity/desk'
+import home from './home'
+import settings from './settings'
 
-export const deskStructure = (S: StructureBuilder) =>
-  S.list()
-    .title('Content')
-    .items([
-      S.documentTypeListItem('home').title('Home Page'),
-      S.documentTypeListItem('settings').title('Site Settings')
-    ])
+export const schemaTypes = [home, settings]
