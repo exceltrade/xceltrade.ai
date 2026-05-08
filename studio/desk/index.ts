@@ -1,9 +1,11 @@
-import {StructureBuilder} from 'sanity/desk'
+import { StructureBuilder } from "sanity/desk";
 
 export const deskStructure = (S: StructureBuilder) =>
   S.list()
-    .title('Content')
+    .title("Content")
     .items([
-      S.documentTypeListItem('home').title('Home Page'),
-      S.documentTypeListItem('settings').title('Site Settings')
-    ])
+      S.documentTypeListItem("pageHome").title("Home Page"),
+      S.documentTypeListItem("service").title("Services"),
+      S.documentTypeListItem("caseStudy").title("Case Studies"),
+      S.documentTypeListItem("siteSettings").title("Site Settings"),
+    ]);
