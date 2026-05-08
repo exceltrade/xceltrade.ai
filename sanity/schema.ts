@@ -1,8 +1,10 @@
-import pageHome from "./documents/pageHome";
-import service from "./documents/service";
-import caseStudy from "./documents/caseStudy";
-import siteSettings from "./documents/siteSettings";
+import { type SchemaTypeDefinition } from "sanity";
+import { pageHome } from "./pageHome";
+// import other docs…
 
-const schema = [pageHome, service, caseStudy, siteSettings];
-
-export default schema;
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [
+    pageHome,
+    // other docs…
+  ],
+};
