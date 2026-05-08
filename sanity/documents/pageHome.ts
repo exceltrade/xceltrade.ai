@@ -1,68 +1,155 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from "sanity";
 
-export default defineType({
+export const pageHome = defineType({
   name: "pageHome",
   title: "Home Page",
   type: "document",
   fields: [
     defineField({
-      name: "heroTitle",
-      title: "Hero Title",
+      name: "headline",
+      title: "Headline",
       type: "string",
-      initialValue: "AI-Enabled Modernization for Regulated Enterprises"
+      initialValue: "Modernizing trade operations for ambitious teams",
     }),
     defineField({
-      name: "heroSubtitle",
-      title: "Hero Subtitle",
+      name: "subheadline",
+      title: "Subheadline",
       type: "text",
+      rows: 3,
       initialValue:
-        "XcelTrade partners with healthcare, education, and scientific organizations to modernize legacy platforms with AI, cloud, and workflow automation."
+        "XcelTrade helps enterprises streamline workflows, reduce risk, and unlock new growth in complex markets.",
     }),
     defineField({
-      name: "heroCtaLabel",
-      title: "Hero CTA Label",
+      name: "heroImage",
+      title: "Hero Image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "primaryCtaLabel",
+      title: "Primary CTA Label",
       type: "string",
-      initialValue: "Schedule a Consultation"
+      initialValue: "Book a strategy call",
     }),
     defineField({
-      name: "metrics",
-      title: "Impact Metrics",
+      name: "primaryCtaHref",
+      title: "Primary CTA Link",
+      type: "string",
+      initialValue: "/contact",
+    }),
+    defineField({
+      name: "secondaryCtaLabel",
+      title: "Secondary CTA Label",
+      type: "string",
+      initialValue: "Download capabilities deck",
+    }),
+    defineField({
+      name: "secondaryCtaHref",
+      title: "Secondary CTA Link",
+      type: "string",
+      initialValue: "/deck",
+    }),
+
+    // Value props
+    defineField({
+      name: "valueProps",
+      title: "Value Props",
       type: "array",
       of: [
         defineField({
-          name: "metric",
-          title: "Metric",
+          name: "valueProp",
           type: "object",
           fields: [
-            { name: "label", title: "Label", type: "string" },
-            { name: "value", title: "Value", type: "string" }
-          ]
-        })
+            { name: "title", type: "string", title: "Title" },
+            { name: "description", type: "text", title: "Description", rows: 3 },
+          ],
+        }),
       ],
       initialValue: [
         {
-          _key: "m1",
-          label: "Submission cycle time reduced via AI automation",
-          value: "85%"
+          _key: "vp1",
+          title: "Operational clarity",
+          description:
+            "Get a single source of truth across deals, risk, and execution so teams move with confidence.",
         },
         {
-          _key: "m2",
-          label: "Faster case resolution through automated data extraction",
-          value: "35%"
+          _key: "vp2",
+          title: "Faster decisions",
+          description:
+            "Surface the right data at the right time so leaders can act in hours, not weeks.",
         },
         {
-          _key: "m3",
-          label: "Customer satisfaction increase on CMS federal platform",
-          value: "25%"
-        }
-      ]
+          _key: "vp3",
+          title: "Scalable foundations",
+          description:
+            "Design processes and systems that grow with your book of business, not against it.",
+        },
+      ],
+    }),
+
+    // Services
+    defineField({
+      name: "services",
+      title: "Services",
+      type: "array",
+      of: [
+        defineField({
+          name: "service",
+          type: "object",
+          fields: [
+            { name: "title", type: "string", title: "Service Title" },
+            { name: "description", type: "text", title: "Description", rows: 3 },
+          ],
+        }),
+      ],
+      initialValue: [
+        {
+          _key: "svc1",
+          title: "Process and workflow design",
+          description:
+            "Map, redesign, and operationalize critical trade workflows across teams and systems.",
+        },
+        {
+          _key: "svc2",
+          title: "Data and reporting foundations",
+          description:
+            "Define the metrics, models, and pipelines that power reliable decision-making.",
+        },
+        {
+          _key: "svc3",
+          title: "Technology and vendor strategy",
+          description:
+            "Evaluate, select, and implement tools that actually fit your operating reality.",
+        },
+      ],
+    }),
+
+    // CTA section
+    defineField({
+      name: "ctaHeadline",
+      title: "CTA Headline",
+      type: "string",
+      initialValue: "Ready to modernize your trade operations?",
     }),
     defineField({
-      name: "servicesIntro",
-      title: "Services Intro",
+      name: "ctaSubheadline",
+      title: "CTA Subheadline",
       type: "text",
+      rows: 3,
       initialValue:
-        "We design and deliver AI-enabled platforms, cloud transformations, and workflow automation programs across regulated industries."
-    })
-  ]
+        "Let’s map your current state, identify the friction, and design a path to scalable execution.",
+    }),
+    defineField({
+      name: "ctaButtonLabel",
+      title: "CTA Button Label",
+      type: "string",
+      initialValue: "Schedule a working session",
+    }),
+    defineField({
+      name: "ctaButtonHref",
+      title: "CTA Button Link",
+      type: "string",
+      initialValue: "/contact",
+    }),
+  ],
 });
