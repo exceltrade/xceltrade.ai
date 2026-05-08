@@ -1,11 +1,28 @@
-export const homeQuery = `
-  *[_type == "home"][0]{
-    title,
-    subtitle,
+import { groq } from "next-sanity";
+
+export const homePageQuery = groq`
+  *[_type == "pageHome"][0]{
+    headline,
+    subheadline,
     heroImage,
-    sections[]{
+    primaryCtaLabel,
+    primaryCtaHref,
+    secondaryCtaLabel,
+    secondaryCtaHref,
+    valueProps[]{
+      _key,
       title,
-      content
-    }
+      description
+    },
+    services[]{
+      _key,
+      title,
+      description
+    },
+    ctaHeadline,
+    ctaSubheadline,
+    ctaButtonLabel,
+    ctaButtonHref
   }
-`
+`;
+
